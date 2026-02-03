@@ -33,7 +33,7 @@ public class MissionManager : MonoBehaviour
         isProcessingMission = true;
 
         // 1. Görevi "Tamamlandý" olarak iþaretle
-        missionText.text = "TEBRÝKLER: GÖREV TAMAMLANDI!";
+        missionText.text = "MISSION COMPLETED!";
         missionText.color = Color.green;
 
         // 2. 3 saniye bekle (Oyuncu baþarýyý görsün)
@@ -60,7 +60,7 @@ public class MissionManager : MonoBehaviour
     {
         if (currentMissionIndex < dailyMissions.Count)
         {
-            missionText.text = "YENÝ GÖREV: " + dailyMissions[currentMissionIndex];
+            missionText.text = "NEW MISSION: " + dailyMissions[currentMissionIndex];
             missionText.color = Color.white;
         }
     }
