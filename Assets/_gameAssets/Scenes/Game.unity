@@ -3624,7 +3624,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dayDurationInSeconds: 25
+  dayDurationInSeconds: 35
   timeOfDay: 0.25
 --- !u!4 &1371059010
 Transform:
@@ -4464,7 +4464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &2068378713
 CanvasGroup:
   m_ObjectHideFlags: 0
