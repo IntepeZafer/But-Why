@@ -12,8 +12,8 @@ public class PenguinController : MonoBehaviour
     public float walkSpeed = 5f;
     public float sprintSpeed = 10f;
     public float slideSpeed = 15f;
-    public float rotationSpeed = 180f; // Saniyedeki dönüþ açýsý
-    public float rotationSmoothTime = 0.15f; // Dönüþün yumuþama süresi
+    public float rotationSpeed = 180f; // Saniyedeki dï¿½nï¿½ï¿½ aï¿½ï¿½sï¿½
+    public float rotationSmoothTime = 0.15f; // Dï¿½nï¿½ï¿½ï¿½n yumuï¿½ama sï¿½resi
     public float jumpHeight = 1.5f;
 
     [Header("Sliding Settings")]
@@ -23,8 +23,8 @@ public class PenguinController : MonoBehaviour
     public Vector3 slideCenter = new Vector3(0, 0.3f, 0);
 
     [Header("Visual Juice (Hissiyat)")]
-    public Transform visualModel; // Karakterin modelini (grafiðini) buraya sürükle
-    public float leanAmount = 15f; // Dönüþlerdeki yatma miktarý
+    public Transform visualModel; // Karakterin modelini (grafiï¿½ini) buraya sï¿½rï¿½kle
+    public float leanAmount = 15f; // Dï¿½nï¿½ï¿½lerdeki yatma miktarï¿½
     public float leanSpeed = 5f;
 
     [Header("Physics")]
@@ -36,7 +36,7 @@ public class PenguinController : MonoBehaviour
     private bool isSliding;
     private float smoothMoveAmount;
 
-    // Yumuþatma için yardýmcý deðiþkenler
+    // Yumuï¿½atma iï¿½in yardï¿½mcï¿½ deï¿½iï¿½kenler
     private float currentRotationVelocity;
     private float rotationVelocitySmooth;
     private float currentLeanAngle;
@@ -75,21 +75,21 @@ public class PenguinController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        // 1. DÖNÜÞ YUMUÞATMA
-        // moveInput.x (-1, 0, 1) deðerini yumuþak bir hýza çeviriyoruz
+        // 1. Dï¿½Nï¿½ï¿½ YUMUï¿½ATMA
+        // moveInput.x (-1, 0, 1) deï¿½erini yumuï¿½ak bir hï¿½za ï¿½eviriyoruz
         float targetRotationVelocity = moveInput.x * rotationSpeed;
         currentRotationVelocity = Mathf.SmoothDamp(currentRotationVelocity, targetRotationVelocity, ref rotationVelocitySmooth, rotationSmoothTime);
 
         transform.Rotate(0, currentRotationVelocity * Time.deltaTime, 0);
 
-        // 2. GÖRSEL YATMA EFEKTÝ (Lean)
-        // Eðer visualModel atanmýþsa, dönüþ yönüne göre modeli Z ekseninde yatýrýr
+        // 2. Gï¿½RSEL YATMA EFEKTï¿½ (Lean)
+        // Eï¿½er visualModel atanmï¿½ï¿½sa, dï¿½nï¿½ï¿½ yï¿½nï¿½ne gï¿½re modeli Z ekseninde yatï¿½rï¿½r
         if (visualModel != null)
         {
             float targetLean = -moveInput.x * leanAmount;
             currentLeanAngle = Mathf.Lerp(currentLeanAngle, targetLean, Time.deltaTime * leanSpeed);
 
-            // Modelin mevcut rotasyonunu bozmadan sadece Z (yatma) eksenini deðiþtiriyoruz
+            // Modelin mevcut rotasyonunu bozmadan sadece Z (yatma) eksenini deï¿½iï¿½tiriyoruz
             visualModel.localRotation = Quaternion.Euler(0, 0, currentLeanAngle);
         }
     }
